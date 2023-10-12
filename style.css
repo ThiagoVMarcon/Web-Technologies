@@ -3,8 +3,7 @@ body {
     font-size: 14px;
     line-height: 1;
     background-color: aquamarine;
-    margin: auto;
-    padding: 0; 
+    margin: 0 0;
 }
 
 p { 
@@ -16,11 +15,11 @@ p {
 header {
     background: orange;
     margin: 0 0 0 0;
-    padding: 0;
+    padding: 0 0 0 0;
     border-style: solid;
-    border-color: orange transparent;
+    border-color: orange;
     position: sticky;
-    top: 0px;
+    top: 0;
 }
 
 h1 { 
@@ -37,11 +36,11 @@ table tr {
 }
 
 table tr td {
-    border: 1px solid #cccccc;
+    border: 1px solid;
     margin: 0;
     padding: 6px 13px;
-    width: 70px;
-    height: 80px;
+    width: 60px;
+    height: 65px;
 }
 
 .pad {
@@ -69,6 +68,9 @@ table tr td {
 }
 
 .classification {
+    position: relative;
+    top:auto;
+    left:auto;
     border-collapse: collapse;
     width: 20em;
     height: 5em;
@@ -88,5 +90,13 @@ table tr td {
 
 .classification tbody tr td {
     padding: 5px;
-    align-content: center;
+}
+
+.coluna {
+    display: inline-block;
+    width: 250px;
+    height: 2000mm;
+    background-color: yellowgreen;
+    position: sticky;
+    top: 72px;
 }
