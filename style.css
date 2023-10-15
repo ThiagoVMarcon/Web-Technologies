@@ -1,102 +1,90 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    line-height: 1;
-    background-color: aquamarine;
-    margin: 0 0;
-}
-
-p { 
-    font-size: 23px;
-    font-family: sans-serif;
-    text-align: justify; 
-}
-
-header {
-    background: orange;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    border-style: solid;
-    border-color: orange;
-    position: sticky;
-    top: 0;
-}
-
-h1 { 
-    text-align: center; 
-    font-size: 300;
-}
-
-table {
-    background-color: black;
-}
-
-table tr {
-    background-color: white;
-}
-
-table tr td {
-    border: 1px solid;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 6px 13px;
-    width: 60px;
-    height: 65px;
-}
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
 
-.pad {
-    padding: 1rem;
-}
+  .left-box {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .left-top {
+    flex: 2;
+    background-color: #ccc;
+    margin: 10px 0;
+    padding: 10px;
+  }
 
-.select {
-    position: relative;
-    bottom: -15px;
-    left: 503px;
-}
-
-.black_circle {
-    background-color: black;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-.white_circle {
-    background-color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-.classification {
-    position: relative;
-    top:auto;
-    left:auto;
-    border-collapse: collapse;
-    width: 20em;
-    height: 5em;
-    background-color: white;
+  .left-bottom {
+    flex: 5;
+    background-color: #9c5656;
+    margin: 10px 0;
+    padding: 10px;
+  }
+  .middle-box {
+    flex: 5;
+    flex-direction: column;
+    display: flex;
     margin: 20px;
-}
-     
-.classification thead tr {
-    border-bottom: 1px grey;
-}
+    padding: 20px;
+  }
+  
+  .middle-top {
+    flex: 2;
+    flex-direction: row;
+    display: flex; 
+    background-color: #ccc; 
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
+  .middle-top-left {
+    flex: 2; 
+    background-color: #8f6060; 
+    margin: 10px 0;
+    padding: 10px;
+  }
 
-.classification thead tr td {
-    font-size: 12px;
-    color: black;
-    padding: 3px;
-}
+  .middle-top-center {
+    flex: 5; 
+    background-color: #ca2525; 
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
+  .middle-top-right {
+    flex: 2; 
+    background-color: #863535; 
+    margin: 10px 0;
+    padding: 10px;
+  }
 
-.classification tbody tr td {
-    padding: 5px;
-}
-
-.coluna {
-    display: inline-block;
-    width: 250px;
-    height: 2000mm;
-    background-color: yellowgreen;
-    position: sticky;
-    top: 72px;
-}
+  .middle-bottom {
+    flex: 1;
+    background-color: #f2f2f2;  
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
