@@ -1,4 +1,4 @@
-body {
+  body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -53,6 +53,7 @@ body {
     margin: 10px 0;
     padding: 10px;
   }
+
   .middle-box {
     flex: 5;
     flex-direction: column;
@@ -111,9 +112,9 @@ body {
     padding: 10px;
     border: 2px solid #000;
   
-}
+  }
 
-.item {
+  .item {
     width: 100%;
     height: 100%;
     background-color: #ccc;
@@ -123,37 +124,41 @@ body {
     justify-content: center;
     font-size: 24px;
     cursor: pointer;;
-}
+  }
 
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-}
-#rules-button {
-  padding: 10px 20px;
-  background-color: #0f0f0f;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 70px;
-  width: 150px;
-  font-size: 30px;
-}
+  .modal {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
 
-.raised-button:hover {
-  transform: translateY(-2px);
-}
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%; /* Ajuste a largura conforme necessário */
+    height: 80%; /* Ajuste a altura conforme necessário */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #rules-button {
+    padding: 10px 20px;
+    background-color: #0f0f0f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 70px;
+    width: 150px;
+    font-size: 30px;
+  }
+
+  .raised-button:hover {
+    transform: translateY(-2px);
+  }
