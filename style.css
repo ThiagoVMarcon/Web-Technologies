@@ -88,3 +88,62 @@ body {
     padding: 10px;
   }
   
+  .tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    width: 450px;
+    height: 360px;
+    flex: 5; 
+    background-color: #d3cfcf; 
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #000;
+  
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border: 1px solid #a79696;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+#rules-button {
+  padding: 10px 20px;
+  background-color: #0f0f0f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 70px;
+  width: 150px;
+  font-size: 30px;
+}
+
+.raised-button:hover {
+  transform: translateY(-2px);
+}
