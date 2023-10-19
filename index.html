@@ -13,8 +13,8 @@
     <div class="container">
         <div class="left-box">
             <div class="left-top">
-                <button>Instructions</button>
-                <button>Settings</button>
+                <button id="instructions-button" class="raised-button">Instructions</button>
+                <button id="settings-button" class="raised-button">Settings</button>
             </div>
             <div class="left-bottom">Esquerda Inferior 2</div>
         </div>
@@ -57,19 +57,33 @@
                 <div class="middle-top-center"></div>
                 <div class="middle-top-right">Superior  Direita</div>
             </div>
-            <div class="middle-bottom">Parte Inferior</div>
-        </div>
-        <button id="rules-button" class="raised-button">Rules</button>
-        <div id="rules-modal" class="modal">
-            <div class="modal-content">
-                <h1>Game Rules</h1>
-                <p></p>
-                <ul>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <button id="close-button">Close</button>
-            </div>
+            <div class="middle-bottom">
+                <div id="instructions-modal" class="modal">
+                    <div class="modal-content">
+                        <h1>Instructions</h1>
+                        <p></p>
+                        <ul>
+                            <li>Tabuleiro e peças</li>
+                            <li>Regras básicas</li>
+                            <li>Peças em linha</li>
+                            <li>Pôr as peças</li>
+                            <li>Mover as peças</li>
+                            <li>Fim do jogo</li>  
+                        </ul>
+                        <button id="instructions-close-button">Close</button>
+                    </div>
+                </div>
+                <div id="settings-modal" class="modal">
+                    <div class="modal-content">
+                        <h1>Settings</h1>
+                        <p></p>
+                        <ul>
+                            <li>Caixa para mudar as configurações</li>
+                        </ul>
+                        <button id="settings-close-button">Close</button>
+                    </div>
+                </div>
+            </div>            
         </div>
     </div>
     <script src="./script.js"></script>
