@@ -1,3 +1,4 @@
+
 const rulesButton = document.getElementById('rules-button');
 const rulesModal = document.getElementById('rules-modal');
 const closeButton = document.getElementById('close-button');
@@ -32,3 +33,5 @@ items.forEach((item, index) => {
         }
     });
 });
+
+

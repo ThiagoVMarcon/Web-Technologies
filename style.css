@@ -35,6 +35,16 @@ body {
     background-color: #ccc;
     margin: 10px 0;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    background-color: #8f6060;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
   }
 
   .left-bottom {
