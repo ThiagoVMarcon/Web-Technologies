@@ -8,13 +8,12 @@
 <body>
     <header>
         <a href="/">Dara</a><br>
-        <img src="dara.jpg" weight="300" height="150">
     </header>
     <div class="container">
         <div class="left-box">
             <div class="left-top">
-                <button id="instructions-button" class="raised-button">Instructions</button>
-                <button id="settings-button" class="raised-button">Settings</button>
+                <button id="instructions-button" onclick="openModal(event)" class="raised-button">Instructions</button>
+                <button id="settings-button" onclick="openModal(event)" class="raised-button">Settings</button>
             </div>
             <div class="left-bottom">Esquerda Inferior 2</div>
         </div>
@@ -70,7 +69,7 @@
                             <li>Mover as peças</li>
                             <li>Fim do jogo</li>  
                         </ul>
-                        <button id="instructions-close-button">Close</button>
+                        <button id="instructions-close-button" onclick="closeModal()">Close</button>
                     </div>
                 </div>
                 <div id="settings-modal" class="modal">
@@ -80,7 +79,7 @@
                         <ul>
                             <li>Caixa para mudar as configurações</li>
                         </ul>
-                        <button id="settings-close-button">Close</button>
+                        <button id="settings-close-button" onclick="closeModal()">Close</button>
                     </div>
                 </div>
             </div>            
