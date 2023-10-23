@@ -1,41 +1,20 @@
-
-const instructionsButton = document.getElementById('instructions-button');
-const instructionsCloseButton = document.getElementById('instructions-close-button');
 const instructionsModal = document.getElementById('instructions-modal');
-const settingsButton = document.getElementById('settings-button');
-const settingsCloseButton = document.getElementById('settings-close-button');
 const settingsModal = document.getElementById('settings-modal');
 
+instructionsModal.style.display = 'none';
+settingsModal.style.display = 'none';
 
-instructionsButton.addEventListener('click', () => {
-    instructionsModal.style.display = 'flex';
-    settingsModal.style.display = 'none'; // Oculta o modal de settings
-});
+function openModal(event) {
+    event.target.id === 'instructions-button' ? instructionsModal.style.display = 'flex' : 'none';
+    event.target.id === 'instructions-button' ? settingsModal.style.display = 'none' : '';
+    event.target.id === 'settings-button' ? settingsModal.style.display = 'flex' : 'none';
+    event.target.id === 'settings-button' ? instructionsModal.style.display = 'none' : '';
+}
 
-instructionsCloseButton.addEventListener('click', () => {
+function closeModal() {
     instructionsModal.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target === instructionsModal) {
-        instructionsModal.style.display = 'none';
-    }
-});
-
-settingsButton.addEventListener('click', () => {
-    settingsModal.style.display = 'flex';
-    instructionsModal.style.display = 'none'; // Oculta o modal de settings
-});
-
-settingsCloseButton.addEventListener('click', () => {
     settingsModal.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target === settingsModal) {
-        settingsModal.style.display = 'none';
-    }
-});
+}
 
 // Variável para controlar o jogador atual (0 para jogador 1, 1 para jogador 2)
 let currentPlayer = 0;
