@@ -45,6 +45,11 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  button:hover {
+    background-color: #9c5656;
   }
 
   .left-bottom {
@@ -111,7 +116,6 @@
     margin: 10px 0;
     padding: 10px;
     border: 2px solid #000;
-  
   }
 
   .item {
@@ -136,29 +140,13 @@
   }
 
   .modal-content {
-    background-color: #fff;
+    background-color: #d41b1b;
     padding: 20px;
     border-radius: 5px;
-    width: 80%; /* Ajuste a largura conforme necessário */
-    height: 80%; /* Ajuste a altura conforme necessário */
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 100%; /* Ajuste a altura conforme necessário */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  #rules-button {
-    padding: 10px 20px;
-    background-color: #0f0f0f;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 70px;
-    width: 150px;
-    font-size: 30px;
-  }
-
-  .raised-button:hover {
-    transform: translateY(-2px);
   }
