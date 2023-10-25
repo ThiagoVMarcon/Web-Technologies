@@ -127,7 +127,7 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    cursor: pointer;;
+    cursor: pointer;
   }
 
   .modal {
@@ -142,7 +142,7 @@
   .modal-content {
     background-color: #d41b1b;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%; /* Ajuste a largura conforme necessário */
     height: 100%; /* Ajuste a altura conforme necessário */
     position: absolute;
@@ -150,3 +150,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+.display {
+  flex-basis:    90%;
+  height:        1em;
+  border-width:  2px;
+  border-style:  inset;
+  margin:        1px;
+  padding:       1px;
+  text-align:    left;
+  background:    white;
+}
+
