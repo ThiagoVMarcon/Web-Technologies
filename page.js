@@ -1,10 +1,13 @@
+const loginModal = document.getElementById('login-modal');
 const instructionsModal = document.getElementById('instructions-modal');
 const settingsModal = document.getElementById('settings-modal');
 
+loginModal.style.display = 'none'
 instructionsModal.style.display = 'none';
 settingsModal.style.display = 'none';
 
 function openModal(event) {
+    event.target.id === 'login-button' ? loginModal.style.display = 'flex' : 'none'
     event.target.id === 'instructions-button' ? instructionsModal.style.display = 'flex' : 'none';
     event.target.id === 'instructions-button' ? settingsModal.style.display = 'none' : '';
     event.target.id === 'settings-button' ? settingsModal.style.display = 'flex' : 'none';
