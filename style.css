@@ -151,12 +151,12 @@
     transform: translate(-50%, -50%);
   }
 
-.display {
+.user-display {
   flex-basis:    90%;
   height:        1em;
   border-width:  2px;
   border-style:  inset;
-  margin:        1px;
+  margin:        20px auto;
   padding:       1px;
   text-align:    left;
   background:    white;

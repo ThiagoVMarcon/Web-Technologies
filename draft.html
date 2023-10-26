@@ -19,9 +19,11 @@
                 <button id="instructions-button" onclick="openModal(event)" class="button">Instructions</button>
                 <button id="settings-button" onclick="openModal(event)" class="button">Settings</button>
             </div>
+            <div class="left-bottom">Esquerda Inferior 2</div>
         </div>
         <div class="middle-box">
             <div class="middle-top">
+                <div class="middle-top-left">Superior Esquerda</div>
                 <div class="middle-top-center">Superior Central (Board)</div>
                 <div class="tabuleiro">
                     <div class="item"></div>
@@ -56,9 +58,37 @@
                     <div class="item"></div>
                 </div>
                 <div class="middle-top-center"></div>
-            </div>           
+                <div class="middle-top-right">Superior  Direita</div>
+            </div>
+            <div class="middle-bottom">
+                <div id="instructions-modal" class="modal">
+                    <div class="modal-content">
+                        <h1>Instructions</h1>
+                        <p></p>
+                        <ul>
+                            <li>Tabuleiro e peças</li>
+                            <li>Regras básicas</li>
+                            <li>Peças em linha</li>
+                            <li>Pôr as peças</li>
+                            <li>Mover as peças</li>
+                            <li>Fim do jogo</li>  
+                        </ul>
+                        <button id="instructions-close-button" onclick="closeModal()">Close</button>
+                    </div>
+                </div>
+                <div id="settings-modal" class="modal">
+                    <div class="modal-content">
+                        <h1>Settings</h1>
+                        <p></p>
+                        <ul>
+                            <li>Caixa para mudar as configurações</li>
+                        </ul>
+                        <button id="settings-close-button" onclick="closeModal()">Close</button>
+                    </div>
+                </div>
+            </div>            
         </div>
     </div>
-    <script src="./page.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
