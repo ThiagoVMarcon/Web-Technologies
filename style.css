@@ -5,7 +5,7 @@
   }
   
   header {
-    background-color: #333;
+    background-color: #012340;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -26,13 +26,13 @@
     flex: 1;
     flex-direction: column;
     display: flex;
-    background-color: #f2f2f2;
+    background-color: #A3CCAB;
     padding: 20px;
   }
   
   .left-top {
     flex: 2;
-    background-color: #ccc;
+    background-color:#DEEFE7;
     margin: 10px 0;
     padding: 10px;
     display: flex;
@@ -40,7 +40,7 @@
   }
 
   button {
-    background-color: #8f6060;
+    background-color: #025939;
     color: #fff;
     border: none;
     padding: 10px;
@@ -49,14 +49,7 @@
   }
 
   button:hover {
-    background-color: #9c5656;
-  }
-
-  .left-bottom {
-    flex: 5;
-    background-color: #9c5656;
-    margin: 10px 0;
-    padding: 10px;
+    background-color: #34675C;
   }
 
   .middle-box {
@@ -71,7 +64,7 @@
     flex: 2;
     flex-direction: row;
     display: flex; 
-    background-color: #ccc; 
+    background-color: #A3CCAB; 
     margin: 10px 0;
     padding: 10px;
   }
@@ -85,7 +78,7 @@
 
   .middle-top-center {
     flex: 5; 
-    background-color: #ca2525; 
+    background-color: #DEEFE7; 
     margin: 10px 0;
     padding: 10px;
   }
@@ -96,13 +89,6 @@
     margin: 10px 0;
     padding: 10px;
   }
-
-  .middle-bottom {
-    flex: 1;
-    background-color: #f2f2f2;  
-    margin: 10px 0;
-    padding: 10px;
-  }
   
   .tabuleiro {
     display: grid;
@@ -110,19 +96,17 @@
     grid-template-rows: repeat(6, 1fr);
     gap: 5px;
     width: 450px;
-    height: 360px;
+    height: 450px;
     flex: 5; 
-    background-color: #d3cfcf; 
-    margin: 10px 0;
-    padding: 10px;
-    border: 2px solid #000;
+    background-color: #012340; 
+    margin: 10px;
+    padding: 5px;
   }
 
   .item {
     width: 100%;
     height: 100%;
-    background-color: #ccc;
-    border: 1px solid #a79696;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,16 +116,16 @@
 
   .modal {
     display: none;
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 75%;
+    height: 75%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
   }
 
   .modal-content {
-    background-color: #d41b1b;
-    padding: 20px;
+    background-color: #b3abab;
+    padding: 0px;
     border-radius: 10px;
     width: 100%; /* Ajuste a largura conforme necessário */
     height: 100%; /* Ajuste a altura conforme necessário */
