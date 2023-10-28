@@ -9,6 +9,7 @@ function getUsername() {
     }
 }
 
+
 loginModal.style.display = 'none'
 instructionsModal.style.display = 'none';
 settingsModal.style.display = 'none';
