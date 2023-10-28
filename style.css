@@ -148,5 +148,6 @@ button:hover {
 }
 
 #close-button {
-  border-radius: 25px;
+  margin: 10px;
+  border-radius: 10px;
 }
