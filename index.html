@@ -11,7 +11,7 @@
     </header>
     <div class="container">
         <div class="left-box">
-            <div class="left-top">
+            <div class="left-inside">
                 <button id="login-button" onclick="openCollapsible()" class="button">Login</button>
                 <div id="collapsible-content" class="login-modal-content">
                     <p>Username</p>
@@ -25,8 +25,8 @@
             </div>
         </div>
         <div class="middle-box">
-            <div class="middle-top">
-                <div class="middle-top-center">Superior Central (Board)</div>
+            <div class="middle-inside">
+                <div id="game-board"></div>
                 <div id="instructions-modal" class="modal">
                     <div class="modal-content">
                         <h1>Instructions</h1>
@@ -85,11 +85,10 @@
                         <button id="settings-close-button" onclick="closeModal()">Close</button>
                     </div>
                 </div>
-                <div id="board"></div>
-                <div class="middle-top-center"></div>
             </div>           
         </div>
     </div>
-    <script src="./page.js"></script>
+    <script src="page.js"></script>
+    <script src="board.js"></script>
 </body>
 </html>
