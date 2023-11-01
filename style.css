@@ -30,26 +30,13 @@
     padding: 20px;
   }
   
-  .left-top {
+  .left-inside {
     flex: 2;
     background-color:#DEEFE7;
     margin: 10px 0;
     padding: 10px;
     display: flex;
     flex-direction: column;
-  }
-
-  button {
-    background-color: #025939;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-
-  button:hover {
-    background-color: #34675C;
   }
 
   .middle-box {
@@ -60,59 +47,14 @@
     padding: 20px;
   }
   
-  .middle-top {
+  .middle-inside {
     flex: 2;
     flex-direction: row;
     display: flex; 
     background-color: #A3CCAB; 
     margin: 10px 0;
     padding: 10px;
-  }
-  
-  .middle-top-left {
-    flex: 2; 
-    background-color: #8f6060; 
-    margin: 10px 0;
-    padding: 10px;
-  }
-
-  .middle-top-center {
-    flex: 5; 
-    background-color: #DEEFE7; 
-    margin: 10px 0;
-    padding: 10px;
-  }
-  
-  .middle-top-right {
-    flex: 2; 
-    background-color: #863535; 
-    margin: 10px 0;
-    padding: 10px;
-  }
-  
-  .tabuleiro {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 5px;
-    width: 450px;
-    height: 450px;
-    flex: 5; 
-    background-color: #012340; 
-    margin: 10px;
-    padding: 5px;
-  }
-
-  .item {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-  }
+  } 
 
   .modal {
     display: none;
@@ -135,52 +77,58 @@
     transform: translate(-50%, -50%);
   }
 
-.user-display {
-  flex-basis:    90%;
-  height:        1em;
-  border-width:  2px;
-  border-style:  inset;
-  margin:        20px auto;
-  padding:       1px;
-  text-align:    left;
-  background:    white;
-}
+  .login-modal-content {
+    top: 5%;
+    padding: 20px;
+    width: 10%;
+    height: 40%;
+  }
 
-.login-modal-content {
-  top: 5%;
-  padding: 20px;
-  width: 10%;
-  height: 40%;
-}
+  #login-box {
+    background-color: white;
+    width: 180px;
+    height: 10px;
+  }
 
-#login-box {
-  background-color: white;
-  width: 180px;
-  height: 10px;
-}
+  button {
+    background-color: #025939;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
 
-#close-button {
-  border-radius: 25px;
-}
+  button:hover {
+    background-color: #34675C;
+  }
 
-#board {
-  display: grid;
-  gap: 1px;
-  width: 400px;
-  height: 400px;
-  flex: 5; 
-  margin: 10px;
-  padding: 5px;
+  #close-button {
+    border-radius: 25px;
+  }
 
-}
+  #game-board {
+    display: grid;
+    gap: 1px;
+    width: 400px;
+    height: 400px;
+    flex: 5; 
+    margin: 10px;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
 
-.cell {
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-}
+  }
+
+  .cell {
+    width: 100%;
+    height: 100%;
+    background-color: #DEEFE7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
