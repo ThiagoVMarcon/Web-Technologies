@@ -1,0 +1,53 @@
+1 - Organização ficheiros: HTML + CSS + JS: (DONE)
+
+2 - Definir em HTML e posicionar com CSS a estrutura: (DONE)
+         - Areas fixas (ex: autenticação, jogo, etc).
+         - Areas temporárias (ex: regras, pontuação).
+
+3 - Colocar conteúdo nas várias áreas:
+        - Peças de jogo (modelo) (TO DO: colocar do lado do tabuleiro)
+        - Tabela de pontuação (modelo) (TO DO: fazer tabela que receba resultados)
+        - Texto com regras do jogo: (HALF DONE: Falta posicionar bem na página e fazer o scroll)
+        - Autenticação: (ALMOST DONE: fazer o botão de OK)
+        - Configuração: (TO DO: tem que fazer tudo)
+        - Botões de jogar, desistir, etc: (TO DO: tem que fazer tudo)
+
+4 -  Implementação do jogo:
+        - Casas: par de coordenadas { row, column } (DONE)
+        - Tabuleiro: array de casas (DONE)
+        - Peças fora do tabuleiro podem ser calculadas (TO DO)
+        - Inicializar tabuleiro (ESTOU TENTANDO)
+        - Mostrar tabuleiro: gerar elementos usando DOM (ESTOU TENTANDO)
+        - Reagir à seleção de um casa (ESTOU TENTANDO)
+
+5 - Controle do jogo:
+        - Gerar tabuleiro inicial (ESTOU TENTANDO)
+        - Processar movimento do jogador (ESTOU TENTANDO)
+        - Invocar jogador automático (depois de jogada) (TO DO)
+        - Verificar fim de jogo (não pode jogar?) (TO DO)
+        - Decidir o vencedor (o que ainda pode jogar) (TO DO)
+        - Registar resultado (TO DO)
+
+6 - Jogador Humano:
+        - Seleção de casa a jogar (pressionar uma casa inicia este processo) (TO DO)
+        - Acção varia consolante o modo definido por variáveis (TO DO)
+        - Fase de jogo: pôr [drop] ou mover [move] (TO DO)
+        - Passo de movimento [step], na fase de mover (TO DO)
+        - escolher peça a mover [from] (TO DO)
+        - escolher posição final [to] (TO DO)
+        - escolher peça a remover [take], se tiver 3 em linha (TO DO)
+        - Invocar jogador automático (TO DO)
+
+7 - Jogador automático I:
+        - Jogo automático caria consoante as fases: pôr e mover (TO DO)
+        - Pôr peças de forma simples (TO DO)
+        - Gerar todas as casas possíveis para pôr uma peça (TO DO)
+        - Casa livre (sem peça de qualquer cor) (TO DO)
+        - Não conduz a 4 peças em linha (TO DO)
+        - Escolher uma dessas casas aleatoriamente (TO DO)
+        - Mover peças de forma simples (TO DO)
+        - Gerar todas os movimentos possíveis (um par de casas contíguas {from, to}) (TO DO)
+        - com uma peça do jogador na origem [from] (TO DO)
+        - vazia no destino [to] (TO DO)
+        - Escolher um movimento aleatoriamente (TO DO)
+        - Realizar uma captura, se existir uma linha (TO DO)
