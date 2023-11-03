@@ -107,7 +107,7 @@
     border-radius: 25px;
   }
 
-  #game-board {
+  .board {
     display: grid;
     gap: 1px;
     width: 400px;
