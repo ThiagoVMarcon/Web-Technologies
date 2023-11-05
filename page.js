@@ -30,63 +30,60 @@ function closeModal() {
 // ------------------------------------------------------- GAME SECTION-----------------------------------------------------------------------
 
 class TicTacToe {
-    constructor(id, rows, cols) {
-      this.rows = rows;
-      this.cols = cols;
-      this.content = new Array(rows * cols);
-      this.board = this.createBoard(id, rows, cols);
-      this.current = 'X';
-    }
-  
-    createBoard(id, rows, cols) {
-      const base = document.getElementById(id);
-      base.innerHTML = ''; // Limpa o conteúdo da base
-  
-      const table = document.createElement('table');
-      table.className = 'board';
-      base.appendChild(table);
-  
-      for (let i = 0; i < rows; i++) {
-        const row = document.createElement('tr');
-        for (let j = 0; j < cols; j++) {
-          const cell = document.createElement('td');
-          cell.className = 'cell';
-          cell.dataset.row = i;
-          cell.dataset.col = j;
-          row.appendChild(cell);
-          cell.onclick = () => this.play(cell);
-        }
-        table.appendChild(row);
-      }
-  
-      return table;
-    }
-  
-    play(cell) {
-      const row = parseInt(cell.dataset.row);
-      const col = parseInt(cell.dataset.col);
-      const pos = row * this.cols + col;
-  
-      if (!this.content[pos]) {
-        this.content[pos] = this.current; 
-        const img = document.createElement('img');
+  constructor(id, rows, cols) {
+    this.rows = rows;
+    this.cols = cols;
+    this.content = new Array(rows * cols);
+    this.board = this.createBoard(id, rows, cols);
+    this.current = 'X'; // 'X' is the starting player
+    this.pieces = ['A.png', 'B.png']; // Add paths to your 'X' and 'O' images
+    this.renderPieces();
+  }
 
-      if (this.current === 'X') {
-        img.src = 'A.png'; 
-      } else {
-        img.src = 'B.png'; 
-      }
+  createBoard(id, rows, cols) {
+    const base = document.getElementById(id);
+    base.innerHTML = ''; // Clear the content of the base
 
-      cell.innerHTML = ''; // Clear the cell content before adding the image
+    const table = document.createElement('table');
+    table.className = 'board';
+    base.appendChild(table);
+
+    for (let i = 0; i < rows; i++) {
+      const row = document.createElement('tr');
+      for (let j = 0; j < cols; j++) {
+        const cell = document.createElement('td');
+        cell.className = 'cell';
+        cell.dataset.row = i;
+        cell.dataset.col = j;
+        row.appendChild(cell);
+        cell.onclick = () => this.play(cell);
+      }
+      table.appendChild(row);
+    }
+
+    return table;
+  }
+
+  play(cell) {
+    const row = parseInt(cell.dataset.row);
+    const col = parseInt(cell.dataset.col);
+    const pos = row * this.cols + col;
+
+    if (!this.content[pos]) {
+      this.content[pos] = this.current;
+      const img = document.createElement('img');
+      img.src = this.current === 'X' ? this.pieces[0] : this.pieces[1];
+      cell.innerHTML = ''; //Clear the cell content before adding the image
       cell.appendChild(img);
-        this.current = this.current === 'X' ? 'O' : 'X';
-      }
+        this.current = this.current === 'X' ? 'O' : 'X'; // Switch players
     }
   }
-  
-  window.onload = function () {
-    const game = new TicTacToe('board', 6, 5); // Agora o tabuleiro é único e de tamanho 6x6
-  };
+}
+
+window.onload = function () {
+  const game = new TicTacToe('board', 6, 6); // The board is now a single 6x6 grid
+};
+
   
 
 // function getUsername() {
