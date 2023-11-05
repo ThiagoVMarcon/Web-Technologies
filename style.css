@@ -6,7 +6,6 @@
   
   header {
     background-color: #012340;
-    color: #fff;
     text-align: center;
     padding: 10px;
   }
@@ -27,7 +26,7 @@
     flex-direction: column;
     display: flex;
     background-color: #A3CCAB;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
   }
   
   .left-inside {
@@ -43,10 +42,9 @@
     flex: 5;
     flex-direction: column;
     display: flex;
-    margin: 20px;
-    padding: 20px;
+    padding: 0px 10px 0; /* Ajuste a propriedade de preenchimento para centralizar verticalmente */
   }
-  
+
   .middle-inside {
     flex: 2;
     flex-direction: row;
@@ -66,7 +64,7 @@
   }
 
   .modal-content {
-    background-color: #b3abab;
+    background-color: #DEEFE7;
     padding: 0px;
     border-radius: 10px;
     width: 100%; /* Ajuste a largura conforme necessário */
@@ -107,28 +105,28 @@
     border-radius: 25px;
   }
 
-  .board {
-    display: grid;
-    gap: 1px;
-    width: 400px;
-    height: 400px;
-    flex: 5; 
-    margin: 10px;
-    padding: 5px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 20px;
-
+  .instructions-scroll {
+    max-height: 90%; /* Ajuste a altura máxima conforme desejado */
+    overflow: auto; /* Habilita a barra de rolagem quando necessário */
   }
 
   .cell {
-    width: 100%;
-    height: 100%;
-    background-color: #DEEFE7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+    width: 75px; /* Ajuste a largura conforme desejado */
+    height: 75px; /* Ajuste a altura conforme desejado */
+    font-family: sans-serif;
+    font-size: 30px; /* Ajuste o tamanho da fonte conforme desejado */
+    line-height: 50px;
+    text-align: center;
+    color: black;
     cursor: pointer;
+    border: 1px solid #025939;
+    background-color: #DEEFE7;
+  }
+  
+  #board {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ajuste a largura para preencher o espaço disponível */
+    height: 70%; /* Ajuste a altura para preencher o espaço disponível */
   }
