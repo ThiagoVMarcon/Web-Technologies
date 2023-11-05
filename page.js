@@ -1,5 +1,3 @@
-import { Board, Piece, Player, DaraGame } from './dara-game.js';
-
 const loginButton = document.getElementById('login-button');
 const collapsibleContent = document.getElementById('collapsible-content');
 const instructionsModal = document.getElementById('instructions-modal');
@@ -29,44 +27,63 @@ function closeModal() {
 }
 
 
-function hideButtons() {
-    collapsibleContent.style.display === 'none';
-    settingsModal.style.display = 'none';
-    // classificationsMOdal.style.display = 'none';
-}
+// ------------------------------------------------------- GAME SECTION-----------------------------------------------------------------------
 
-function starDara() {
-    // First thing, hide buttons (except instructions)
-    hideButtons();
-    // Initialize board and necessary info to start the game
-    const board = new Board(6, 5);
-    const player1_Piece = new Piece(null, null);
-    const player2_Piece = new Piece(null, null);
-    const player1 = new Player("Jogador1", player1_Piece);
-    const player2 = new Player("Computer", player2_Piece, true);
-    const game = new DaraGame(board, player1, player2, "easy", player1);
-}
+class TicTacToe {
+    constructor(id, rows, cols) {
+      this.rows = rows;
+      this.cols = cols;
+      this.content = new Array(rows * cols);
+      this.board = this.createBoard(id, rows, cols);
+      this.current = 'X';
+    }
+  
+    createBoard(id, rows, cols) {
+      const base = document.getElementById(id);
+      base.innerHTML = ''; // Limpa o conteúdo da base
+  
+      const table = document.createElement('table');
+      table.className = 'board';
+      base.appendChild(table);
+  
+      for (let i = 0; i < rows; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+          const cell = document.createElement('td');
+          cell.className = 'cell';
+          cell.dataset.row = i;
+          cell.dataset.col = j;
+          row.appendChild(cell);
+          cell.onclick = () => this.play(cell);
+        }
+        table.appendChild(row);
+      }
+  
+      return table;
+    }
+  
+    play(cell) {
+      const row = parseInt(cell.dataset.row);
+      const col = parseInt(cell.dataset.col);
+      const pos = row * this.cols + col;
+  
+      if (!this.content[pos]) {
+        this.content[pos] = this.current;
+        cell.innerHTML = this.current;
+        this.current = this.current === 'X' ? 'O' : 'X';
+      }
+    }
+  }
+  
+  window.onload = function () {
+    const game = new TicTacToe('board', 6, 6); // Agora o tabuleiro é único e de tamanho 6x6
+  };
+  
 
-//starDara();
 // function getUsername() {
 //     let username = document.getElementById("username");
 //     if (username.type === "text") {
 //     }
 // }
 
-// Variável para controlar o jogador atual (0 para jogador 1, 1 para jogador 2)
-// let currentPlayer = 0;
 
-// // Adicione um evento de clique a todas as células
-// const items = document.querySelectorAll(".item");
-// items.forEach((item, index) => {
-//     item.addEventListener("click", () => {
-//         const pieceImage = currentPlayer === 0 ? "A.png" : "B.png";
-//         if (item.querySelector("img") === null) {
-//             const img = document.createElement("img");
-//             img.src = pieceImage;
-//             item.appendChild(img);
-//             currentPlayer = 1 - currentPlayer; // Alternar entre jogadores
-//         }
-//     });
-// });
