@@ -68,15 +68,24 @@ class TicTacToe {
       const pos = row * this.cols + col;
   
       if (!this.content[pos]) {
-        this.content[pos] = this.current;
-        cell.innerHTML = this.current;
+        this.content[pos] = this.current; 
+        const img = document.createElement('img');
+
+      if (this.current === 'X') {
+        img.src = 'A.png'; 
+      } else {
+        img.src = 'B.png'; 
+      }
+
+      cell.innerHTML = ''; // Clear the cell content before adding the image
+      cell.appendChild(img);
         this.current = this.current === 'X' ? 'O' : 'X';
       }
     }
   }
   
   window.onload = function () {
-    const game = new TicTacToe('board', 6, 6); // Agora o tabuleiro é único e de tamanho 6x6
+    const game = new TicTacToe('board', 6, 5); // Agora o tabuleiro é único e de tamanho 6x6
   };
   
 
