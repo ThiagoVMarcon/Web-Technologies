@@ -27,9 +27,9 @@ function closeModal() {
 }
 
 
-// ------------------------------------------------------- GAME SECTION-----------------------------------------------------------------------
+// ------------------------------------------------------- GAME SECTION-----------------------------------------------------------------------//
 
-class TicTacToe {
+class DaraGame {
   constructor(id, rows, cols) {
     this.rows = rows;
     this.cols = cols;
@@ -37,8 +37,8 @@ class TicTacToe {
     this.board = this.createBoard(id, rows, cols);
     this.current = 'X'; // 'X' is the starting player
     this.pieces = {
-      X: { path: 'A.png', count: 12 }, 
-      O: { path: 'B.png', count: 12 },
+      X: { path: 'blue_piece.png', count: 12 }, 
+      O: { path: 'green_piece.png', count: 12 },
     };
     // creates HTML elements to display the pieces
     this.renderPieces();
@@ -82,6 +82,8 @@ class TicTacToe {
       pieceDiv.className = 'piece';
       const img = document.createElement('img');
       img.src = this.pieces[piece].path;
+      img.style.width = '50px'; // Adjust the width as needed
+      img.style.height = '50px'; // Adjust the height as needed
       const countSpan = document.createElement('span');
       countSpan.textContent = `x ${this.pieces[piece].count}`;
 
@@ -112,28 +114,30 @@ class TicTacToe {
         this.content[pos] = this.current;
         const img = document.createElement('img');
         img.src = this.current === 'X' ? this.pieces.X.path : this.pieces.O.path;
+        img.style.width = '50px'; 
+        img.style.height = '50px'; 
+        img.style.display = 'block';
+        img.style.margin = 'auto';
         cell.innerHTML = ''; // Clear the cell content before adding the image
         cell.appendChild(img);
 
         this.pieces[this.current].count--; // Decrement the piece count
         this.displayPieces(); // Update the displayed count
         this.current = this.current === 'X' ? 'O' : 'X'; // Switch players
-        console.log(`${this.current} wins!`);
       }
     }
     
   }
+//-----------------------------------------------------------------------------------------------------
+
 }
 
+     
+
+//-----------------------------------------------------------------------------------------------------
+
+
 window.onload = function () {
-  const game = new TicTacToe('board', 6, 5); // The board is now a single 6x6 grid
+  const game = new DaraGame('board', 6, 5); // The board is now a single 6x6 grid
 };
   
-
-// function getUsername() {
-//     let username = document.getElementById("username");
-//     if (username.type === "text") {
-//     }
-// }
-
-
