@@ -140,4 +140,25 @@ class DaraGame {
 window.onload = function () {
   const game = new DaraGame('board', 6, 5); // The board is now a single 6x6 grid
 };
-  
+
+window.onload = function () {
+  const game = new DaraGame('board', 6, 5); 
+};
+
+const base = "http://twserver.alunos.dcc.fc.up.pt:8008";
+
+function register() {
+    const data = {
+      nick: "zp",
+      password: "zp!!"
+    };
+
+    fetch(`${base}/register`,{
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(j => console.log(j))
+}
+
+register()
