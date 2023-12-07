@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN"> 
 <head>
     <meta charset="UTF-8">
     <title>Dara</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -12,81 +13,111 @@
     <div class="container">
         <div class="left-box">
             <div class="left-inside">
-                <button id="login-button" onclick="openCollapsible()" type="button">Login</button>
+                <button id="login-button" onclick="openCollapsible()" class="left-buttons">Login</button>
                 <div id="collapsible-content" class="login-modal-content">
-                    <p>Username</p>
-                        <input type="text" id="login-box">
-                    <p>Password</p>
-                        <input type="password" id="login-box">
+                    <p>Username:</p>
+                        <input type="text" id="username-box">
+                        <span id="login-error"></span>
+                    <p>Password:</p>
+                        <input type="password" id="password-box">
+                        <span id="login-error"></span>
                 </div>
-                <button id="instructions-button" onclick="openModal(event)" type="button">Instructions</button>
-                <button id="settings-button" onclick="openModal(event)" type="button">Settings</button>
-                <button id="settings-button" onclick="openModal(event)" type="button">Classifications</button>
+                <button id="instructions-button" onclick="openModal(event)" class="left-buttons">Instructions</button>
+                <button id="settings-button" onclick="openModal(event)" class="left-buttons">Settings</button>
+                <button id="classifications-button" class="left-buttons">Classifications</button>
             </div>
         </div>
         <div class="middle-box">
             <div class="middle-inside">
                 <div id="board"></div>
-                <div id="instructions-modal" class="modal">
+                <div id="instructions-modal">
                     <div class="modal-content">
                         <div class="instructions-scroll">
-                            <ul>
                                 <h1>Instructions</h1>
-                                <ul>
-                                    <h2>Tabuleiro e peças</h2>
-                                        <li>O Dara joga-se num tabuleiro 6 linhas x 5 colunas</li>
-                                        <li>Outras dimensões são possíveis, como 6 x 6</li>
-                                        <li>Cada um dos 2 jogadores tem 12 peças</li>
-                                        <li>Um jogador joga com preças pretas, outro com as brancas</li>
-                                        <li>Todas as peças 22 estão sempre visíveis, no tabuleiro ou fora</li>
-                                        <li>Peças fora do tabuleiro são agrupadas por cor, de cada lado</li>
-                                    <h2>Regras básicas</h2>
-                                        <li>Jogadores escolhem uma cor e decidem quem joga primeiro</li>
-                                        <li>Inicialmente o tabuleiro está vazio</li>
-                                        <li>O jogo tem 2 fases:
-                                            Fase 1 - Pôr as peças (drop)
-                                            Fase 2 - Mover as peças (move)</li>
-                                        <li>No exemplo acima o tabuleiro está entre as 2 fases</li>
-                                    <h2>Peças em linha</h2>
-                                        <li>São consideradas em linha:
-                                            sequências de 3 ou mais peças contíguas, 
-                                            na horizontal ou vertical (não na diagonal), 
-                                            todas da mesma cor</li>
-                                    <h2>Pôr as peças</h2>
-                                        <li>Jogadores põem alternadamente uma peça sua numa casa livre</li>
-                                        <li>Não podem podem ser postas mais de 3 peças em linha</li>
-                                        <li>Podem existir 3 peças em linha (mas não é vantajoso)</li>
-                                        <li>No exemplo acima, cada jogador já colocou uma peça</li>
-                                    <h2>Mover as peças</h2>
-                                        <li>Cada jogador move alternadamente uma peça da sua cor</li>
-                                        <li>Uma peça só pode ser movida para uma casa contígua</li>
-                                        <li>Peças movidas apenas na horizontal ou vertical (não na diagonal)</li>
-                                        <li>Uma linha de tamanho 3 permite capturar peça do adversário</li>
-                                        <li>Neste caso, remove uma peça do adversário à sua escolha</li>
-                                        <li>Só uma peça é removida por jogada (mesmo sendo formadas várias linhas)</li>
-                                        <li>Não podem ser formadas linhas com mais de 3 peças</li>
-                                        <li>Uma peça não pode retornar à posição da jogada anterior</li>
-                                        <li>Só poderá retornar a essa casa nas jogadas seguintes</li>
-                                    <h2>Fim do jogo</h2>  
-                                        <li>O jogo termina quando um jogador não puder ganhar</li>
-                                        <li>Por exemplo, se tiver apenas 2 peças no tabuleiro</li>
-                                        <li>Ou se não puder realizar uma jogada válida</li>
-                                        <li>O jogador que não pode ganhar perde o jogo</li>
-                                        <li>No exemplo acima, ganham as brancas</li>                      
-                                </ul>
-                            </ul>
-                        </div>
-                        <button id="close-button" onclick="closeModal()">Close</button>
+                                    <h2>Board and Pieces:</h2>
+                                    <ul>
+                                        <li>Dara is played on a 6 rows x 5 columns board.</li>
+                                        <li>Other dimensions are possible, such as 6 x 6.</li>
+                                        <li>Each of the 2 players has 12 pieces.</li>
+                                        <li>One player plays with black pieces, the other with white.</li>
+                                        <li>All 24 pieces are always visible, whether on the board or off.</li>
+                                        <li>Pieces off the board are grouped by color, one side for each.</li>
+                                    </ul>
+                                    <h2>Basic Rules:</h2>
+                                    <ul>
+                                        <li>Players choose a color and decide who plays first.</li>
+                                        <li>Initially, the board is empty.</li>
+                                        <li>The game has 2 phases:</li>
+                                        <li>Phase 1 - Placing the pieces (drop).</li>
+                                        <li>Phase 2 - Moving the pieces (move).</li>
+                                    </ul>
+                                    <h2>Pieces in Line:</h2>
+                                    <ul>
+                                        <li>Considered in line are:
+                                            sequences of 3 or more contiguous pieces,
+                                            horizontally or vertically (not diagonally),
+                                            all of the same color.</li>
+                                    </ul>
+                                    <h2>Placing the Pieces:</h2>
+                                    <ul>
+                                        <li>Players alternately place one of their pieces in an empty house.</li>
+                                        <li>More than 3 pieces in a line cannot be placed.</li>
+                                        <li>3 pieces in a line can exist (but it is not advantageous).</li>
+                                    </ul>
+                                    <h2>Moving the Pieces:</h2>
+                                    <ul>
+                                        <li>Each player alternately moves a piece of their color.</li>
+                                        <li>A piece can only be moved to an adjacent house.</li>
+                                        <li>Pieces are moved only horizontally or vertically (not diagonally).</li>
+                                        <li>A line of size 3 allows capturing an opponent's piece.</li>
+                                        <li>In this case, one piece of the opponent is removed at your choice.</li>
+                                        <li>Only one piece is removed per move (even if multiple lines are formed).</li>
+                                        <li>Lines with more than 3 pieces cannot be formed.</li>
+                                        <li>A piece cannot return to the position of the previous move.</li>
+                                        <li>It can only return to that house in subsequent moves.</li>
+                                    </ul>
+                                    <h2>End of the Game:</h2>
+                                    <ul>
+                                        <li>The game ends when a player cannot win.</li>
+                                        <li>For example, if there are only 2 pieces on the board.</li>
+                                        <li>Or if a valid move cannot be made.</li>
+                                        <li>The player who cannot win loses the game.</li>
+                                    </ul>
+                          </div>
+                          <button id="instructions-close-button" class="close-button" onclick="closeModal()">x</button>
                     </div>
                 </div>
-                <div id="settings-modal" class="modal">
+                <div id="settings-modal">
                     <div class="modal-content">
-                        <h1>Settings</h1>
-                        <p></p>
-                        <ul>
-                            <li>Caixa para mudar as configurações</li>
-                        </ul>
-                        <button id="close-button" onclick="closeModal()">Close</button>
+                        <div class="selectors"> 
+                            <h1>Settings</h1>
+                                <label for="board-size">Board Size:</label>
+                                <select id="board-size">
+                                    <option value="6x5">6x5</option>
+                                    <option value="6x6">6x6</option>
+                                </select>
+                                <label for="opponent">Compete Against:</label>
+                                <select id="opponent">
+                                    <option value="computer">Computer</option>
+                                    <option value="player">Another Player</option>
+                                </select>
+                                <label for="first-to-play">First to Play:</label>
+                                <select id="first-to-play">
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="random">Random</option>
+                                </select>
+                                <div id="difficulty-div">
+                                <label for="difficulty">Difficulty:</label>
+                                <select id="difficulty">
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                                </div>
+                                <button id="default-button">Default</button>
+                        </div>
+                        <button id="settings-close-button" class="close-button" onclick="closeModal()">x</button>
                     </div>
                 </div>
             </div>           
