@@ -1,132 +1,187 @@
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #012340;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 24px;
-  }
-  
-  .container {
-    display: flex;
-    min-height: 100vh;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  .left-box {
-    flex: 1;
-    flex-direction: column;
-    display: flex;
-    background-color: #A3CCAB;
-    padding: 10px 20px 10px 20px;
-  }
-  
-  .left-inside {
-    flex: 2;
-    background-color:#DEEFE7;
-    margin: 10px 0;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-  }
+header {
+  background-color: #012340;
+  text-align: center;
+  padding: 10px;
+}
 
-  .middle-box {
-    flex: 5;
-    flex-direction: column;
-    display: flex;
-    padding: 0px 10px 0; /* Ajuste a propriedade de preenchimento para centralizar verticalmente */
-  }
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+}
 
-  .middle-inside {
-    flex: 2;
-    flex-direction: row;
-    display: flex; 
-    background-color: #A3CCAB; 
-    margin: 10px 0;
-    padding: 10px;
-  } 
+.container {
+  display: flex;
+  min-height: 100vh;
+}
 
-  .modal {
-    display: none;
-    position: absolute;
-    width: 75%;
-    height: 75%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-  }
+.left-box {
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  background-color: #A3CCAB;
+  padding: 10px 20px 20px 20px;
+}
 
-  .modal-content {
-    background-color: #DEEFE7;
-    padding: 0px;
-    border-radius: 10px;
-    width: 100%; /* Ajuste a largura conforme necessário */
-    height: 100%; /* Ajuste a altura conforme necessário */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.left-inside {
+  flex: 2;
+  background-color:#DEEFE7;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .login-modal-content {
-    margin: 0 0 0 0;
-    padding: 10px 0;
-    width: 10%;
-    height: 20%;
-  }
+.middle-box {
+  flex: 5;
+  flex-direction: column;
+  display: flex;
+  padding: 0px 10px 0;
+}
 
-  #login-box {
-    background-color: white;
-    width: 180px;
-    height: 10px;
-  }
+.middle-inside {
+  flex: 2;
+  flex-direction: row;
+  display: flex; 
+  background-color: #A3CCAB; 
+  margin: 10px 0;
+  padding: 10px;
+} 
 
-  button {
-    background-color: #025939;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
+.modal {
+  display: none;
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
 
-  button:hover {
-    background-color: #34675C;
-  }
+.modal-content {
+  background-color: #DEEFE7;
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  top: 50%;
+  left: 59%;
+  transform: translate(-50%, -50%); 
+}
 
-  #close-button {
-    border-radius: 15px;
-  }
+.login-modal-content {
+  margin: 0;
+  padding: 0px 30px 30px 50px;
+}
 
-  .instructions-scroll {
-    max-height: 90%; /* Ajuste a altura máxima conforme desejado */
-    overflow: auto; /* Habilita a barra de rolagem quando necessário */
-  }
+#login-box {
+  background-color: white;
+  width: 180px;
+  height: 10px;
+}
 
-  .cell {
-    width: 75px; /* Ajuste a largura conforme desejado */
-    height: 75px; /* Ajuste a altura conforme desejado */
-    font-family: sans-serif;
-    font-size: 30px; /* Ajuste o tamanho da fonte conforme desejado */
-    line-height: 50px;
-    text-align: center;
-    color: black;
-    cursor: pointer;
-    border: 1px solid #025939;
-    background-color: #DEEFE7;
-  }
-  
-  #board {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 100%; /* Ajuste a largura para preencher o espaço disponível */
-    height: 70%; /* Ajuste a altura para preencher o espaço disponível */
-  }
+#instructions-modal h1 {
+  text-align: center; 
+} 
+
+.h2 {
+  font-size: 18pt;
+  font-weight: bold;
+}
+#settings-modal h1 {
+  text-align: center;
+} 
+
+.left-buttons {
+  background-color: #025939;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.left-buttons:hover {
+  background-color: #34675C;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px; 
+  right: 20px; 
+  color: #012340; 
+  font-size: 25px;
+  font-weight: bold;
+  border: 0px;
+  background-color: transparent; 
+}
+
+.close-button:hover {
+  color: #A3CCAB;
+}
+
+.instructions-scroll {
+  max-height: 95%; 
+  overflow: auto; 
+}
+
+label {
+  display: block; 
+  margin-top: 20px;
+}
+
+select {
+  display: block;
+  margin: 0 auto;
+  width: 90%; 
+  padding: 5px 5px 5px 5px;
+  margin-top: 5px; 
+  text-align: center;
+}
+
+#default-button {
+  display: block; /* Torna o botão um bloco para que o alinhamento funcione */
+  margin: 0 auto; /* Centraliza horizontalmente o botão */
+  background-color: #025939;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px; 
+}
+
+#default-button:hover {
+  background-color: #34675C;
+}
+
+.cell {
+  width: 90px; /* Ajuste a largura conforme desejado */
+  height: 90px; /* Ajuste a altura conforme desejado */
+  font-family: sans-serif;
+  font-size: 30px; /* Ajuste o tamanho da fonte conforme desejado */
+  text-align: center;
+  color: black;
+  cursor: pointer;
+  border: 1px solid #025939;
+  background-color: #DEEFE7;
+  position: relative;
+}
+
+.cell img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#board {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  width: 100%; /* Ajuste a largura para preencher o espaço disponível */
+  height: 70%; /* Ajuste a altura para preencher o espaço disponível */
+}
