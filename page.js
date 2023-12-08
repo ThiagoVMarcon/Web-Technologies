@@ -1,4 +1,8 @@
 const loginButton = document.getElementById('login-button');
+const instructionsButton = document.getElementById('instructions-button');
+const settingsButton = document.getElementById('settings-button');
+const classificationsButton = document.getElementById('classifications-button');
+const playButton = document.getElementById('play-button');
 const collapsibleContent = document.getElementById('collapsible-content');
 const instructionsModal = document.getElementById('instructions-modal');
 const settingsModal = document.getElementById('settings-modal');
@@ -26,16 +30,13 @@ function closeModal() {
     settingsModal.style.display = 'none';
 }
 
-
-// ------------------------------------------------------- GAME SECTION-----------------------------------------------------------------------//
-
 class DaraGame {
   constructor(id, rows, cols) {
     this.rows = rows;
     this.cols = cols;
     this.content = new Array(rows * cols);
     this.board = this.createBoard(id, rows, cols);
-    this.current = 'X'; // 'X' is the starting player
+    this.current = 'X'; 
     this.pieces = {
       X: { path: 'blue_piece.png', count: 12 }, 
       O: { path: 'green_piece.png', count: 12 },
@@ -73,7 +74,6 @@ class DaraGame {
 
 
   renderPieces() {
-    // Create HTML elements for displaying the pieces beside the board
     const piecesContainer = document.createElement('div');
     piecesContainer.className = 'pieces-container';
 
@@ -82,8 +82,8 @@ class DaraGame {
       pieceDiv.className = 'piece';
       const img = document.createElement('img');
       img.src = this.pieces[piece].path;
-      img.style.width = '50px'; // Adjust the width as needed
-      img.style.height = '50px'; // Adjust the height as needed
+      img.style.width = '50px'; 
+      img.style.height = '50px'; 
       const countSpan = document.createElement('span');
       countSpan.textContent = `x ${this.pieces[piece].count}`;
 
@@ -126,24 +126,35 @@ class DaraGame {
         this.current = this.current === 'X' ? 'O' : 'X'; // Switch players
       }
     }
-    
   }
-//-----------------------------------------------------------------------------------------------------
-
 }
 
-     
+function startGame() {
+  const game = new DaraGame('board', 6, 5);
+  loginButton.style.display = 'none';
+  instructionsButton.style.display = 'none';
+  settingsButton.style.display = 'none';
+  classificationsButton.style.display = 'none';
+  playButton.style.display = 'none';
+}
 
-//-----------------------------------------------------------------------------------------------------
+function endGame() {
+  loginButton.style.display = 'block';
+  instructionsButton.style.display = 'block';
+  settingsButton.style.display = 'block';
+  classificationsButton.style.display = 'block';
+  playButton.style.display = 'block';
+}
 
+// Certifique-se de remover a seguinte linha do seu código original,
+// pois ela está substituindo a função onload anteriormente definida.
+// window.onload = function () {
+//   const game = new DaraGame('board', 6, 5);
+// };
 
-window.onload = function () {
-  const game = new DaraGame('board', 6, 5); // The board is now a single 6x6 grid
-};
-
-window.onload = function () {
-  const game = new DaraGame('board', 6, 5); 
-};
+// window.onload = function () {
+//   const game = new DaraGame('board', 6, 5); 
+// };
 
 const base = "http://twserver.alunos.dcc.fc.up.pt:8008";
 
