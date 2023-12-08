@@ -40,10 +40,12 @@ a {
 
 .middle-box {
   flex: 5;
-  flex-direction: column;
   display: flex;
+  flex-direction: column; /* Adicionado para definir a direção como coluna */
   padding: 0px 10px 0;
+  height: 100%; /* Adicionado para ocupar toda a altura */
 }
+
 
 .middle-inside {
   flex: 2;
@@ -144,8 +146,8 @@ select {
 }
 
 #default-button {
-  display: block; /* Torna o botão um bloco para que o alinhamento funcione */
-  margin: 0 auto; /* Centraliza horizontalmente o botão */
+  display: block; 
+  margin: 0 auto; 
   background-color: #025939;
   color: #fff;
   border: none;
@@ -159,10 +161,10 @@ select {
 }
 
 .cell {
-  width: 90px; /* Ajuste a largura conforme desejado */
-  height: 90px; /* Ajuste a altura conforme desejado */
+  width: 90px; 
+  height: 90px; 
   font-family: sans-serif;
-  font-size: 30px; /* Ajuste o tamanho da fonte conforme desejado */
+  font-size: 30px; 
   text-align: center;
   color: black;
   cursor: pointer;
@@ -185,3 +187,9 @@ select {
   width: 100%; /* Ajuste a largura para preencher o espaço disponível */
   height: 70%; /* Ajuste a altura para preencher o espaço disponível */
 }
+
+.pieces-container {
+  display: flex;
+  justify-content: center;
+}
+
