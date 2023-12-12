@@ -41,21 +41,19 @@ class DaraGame {
       X: { path: 'blue_piece.png', count: 12 }, 
       O: { path: 'green_piece.png', count: 12 },
     };
-    // creates HTML elements to display the pieces
+    this.currentPhase = 'placement';
+
     this.renderPieces();
 
-    // Display the pieces beside the board
     this.displayPieces();
   }
 
   createBoard(id, rows, cols) {
     const base = document.getElementById(id);
-    base.innerHTML = ''; // Clear the content of the base
-
+    base.innerHTML = ''; 
     const table = document.createElement('table');
     table.className = 'board';
     base.appendChild(table);
-
     for (let i = 0; i < rows; i++) {
       const row = document.createElement('tr');
       for (let j = 0; j < cols; j++) {
@@ -68,10 +66,8 @@ class DaraGame {
       }
       table.appendChild(row);
     }
-
     return table;
   }
-
 
   renderPieces() {
     const piecesContainer = document.createElement('div');
@@ -108,7 +104,6 @@ class DaraGame {
     const row = parseInt(cell.dataset.row);
     const col = parseInt(cell.dataset.col);
     const pos = row * this.cols + col;
-
     if (!this.content[pos]) {
       if (this.pieces[this.current].count > 0) {
         this.content[pos] = this.current;
@@ -118,15 +113,15 @@ class DaraGame {
         img.style.height = '50px'; 
         img.style.display = 'block';
         img.style.margin = 'auto';
-        cell.innerHTML = ''; // Clear the cell content before adding the image
+        cell.innerHTML = ''; 
         cell.appendChild(img);
-
-        this.pieces[this.current].count--; // Decrement the piece count
-        this.displayPieces(); // Update the displayed count
-        this.current = this.current === 'X' ? 'O' : 'X'; // Switch players
+        this.pieces[this.current].count--;
+        this.displayPieces();
+        this.current = this.current === 'X' ? 'O' : 'X'; 
       }
     }
   }
+
 }
 
 function startGame() {
@@ -139,18 +134,8 @@ function startGame() {
 }
 
 function endGame() {
-  loginButton.style.display = 'block';
-  instructionsButton.style.display = 'block';
-  settingsButton.style.display = 'block';
-  classificationsButton.style.display = 'block';
-  playButton.style.display = 'block';
+  location.reload(); 
 }
-
-// Certifique-se de remover a seguinte linha do seu código original,
-// pois ela está substituindo a função onload anteriormente definida.
-// window.onload = function () {
-//   const game = new DaraGame('board', 6, 5);
-// };
 
 // window.onload = function () {
 //   const game = new DaraGame('board', 6, 5); 
