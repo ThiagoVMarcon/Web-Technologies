@@ -30,10 +30,10 @@ async function makeRequest(urlname, data) {
     return fetch(url, config)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Error in the request ${config.method} ${urlname}: ${response.statusText}`);
+          throw new Error(`Error in the request.`);
         }
   
-        console.log(`Successful request:  ${config.method} ${urlname}`);
+        console.log(`Successful request.`);
         return response.json();
       })
       .catch((error) => {
