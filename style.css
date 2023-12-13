@@ -193,3 +193,13 @@ select {
   justify-content: center;
 }
 
+
+  .button-group {
+    display: flex;
+}
+
+  #submit-button, #register-button {
+    margin-right: 30px; 
+}
+  
+
