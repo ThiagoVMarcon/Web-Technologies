@@ -6,10 +6,12 @@ const playButton = document.getElementById('play-button');
 const collapsibleContent = document.getElementById('collapsible-content');
 const instructionsModal = document.getElementById('instructions-modal');
 const settingsModal = document.getElementById('settings-modal');
+const leftBox = document.getElementById('left-box');
 
 collapsibleContent.style.display = 'none';
 instructionsModal.style.display = 'none';
 settingsModal.style.display = 'none';
+
 
 function openCollapsible() {
     if (collapsibleContent.style.display === 'none' || collapsibleContent.style.display === '')
@@ -107,6 +109,7 @@ class DaraGame {
     if (!this.content[pos]) {
       if (this.pieces[this.current].count > 0) {
         this.content[pos] = this.current;
+        notifyMove("lucas", "secret", "2fd9d", {row, col});
         const img = document.createElement('img');
         img.src = this.current === 'X' ? this.pieces.X.path : this.pieces.O.path;
         img.style.width = '50px'; 
@@ -124,13 +127,37 @@ class DaraGame {
 
 }
 
+
+function getBoardSize() {
+  const selectedSize = document.getElementById('board-size').value;
+  let rows, cols;
+
+  if (selectedSize === "6x5") {
+    rows = 6;
+    cols = 5;
+  } else if (selectedSize === "6x6") {
+    rows = 6;
+    cols = 6;
+  } else if (selectedSize === "5x6") {
+    rows = 5;
+    cols = 6;
+  } else if (selectedSize === "7x6") {
+    rows = 7;
+    cols = 6;
+  }
+
+  return { rows, cols };
+}
+
 function startGame() {
-  const game = new DaraGame('board', 6, 5);
+  const { rows, cols } = getBoardSize();
+  const game = new DaraGame('board', rows, cols);
   loginButton.style.display = 'none';
   instructionsButton.style.display = 'none';
   settingsButton.style.display = 'none';
   classificationsButton.style.display = 'none';
   playButton.style.display = 'none';
+  leftBox.style.display ='none';
 }
 
 function endGame() {
@@ -141,20 +168,5 @@ function endGame() {
 //   const game = new DaraGame('board', 6, 5); 
 // };
 
-const base = "http://twserver.alunos.dcc.fc.up.pt:8008";
 
-function register() {
-    const data = {
-      nick: "zp",
-      password: "zp!!"
-    };
 
-    fetch(`${base}/register`,{
-      method: 'POST',
-      body: JSON.stringify(data)
-    })
-    .then(r => r.json())
-    .then(j => console.log(j))
-}
-
-register()
