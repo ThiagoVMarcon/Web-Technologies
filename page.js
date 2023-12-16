@@ -110,7 +110,6 @@ class DaraGame {
     if (!this.content[pos]) {
       if (this.pieces[this.current].count > 0) {
         this.content[pos] = this.current;
-        notifyMove("lucas", "secret", "2fd9d", {row, col});
         const img = document.createElement('img');
         img.src = this.current === 'X' ? this.pieces.X.path : this.pieces.O.path;
         img.style.width = '50px'; 
@@ -151,6 +150,7 @@ function getBoardSize() {
 
 function startGame() {
   joinGame(rows, cols);
+  update();
   const game = new DaraGame('board', rows, cols);
   loginButton.style.display = 'none';
   instructionsButton.style.display = 'none';
@@ -162,9 +162,12 @@ function startGame() {
 
 function endGame() {
   leaveGame();
-  //location.reload(); 
+  location.reload(); 
 }
 
 // window.onload = function () {
 //   const game = new DaraGame('board', 6, 5); 
 // };
+
+
+
