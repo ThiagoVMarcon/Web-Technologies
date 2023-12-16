@@ -36,7 +36,8 @@ async function makeRequest(urlname, data) {
       console.log("Successful request.");
       return jsonResponse;
   } catch (error) {
-      console.error("Request error:" + error.message);
+      console.error(error.message);
+      alert(error.message);
       throw error;
   }
 }
@@ -69,7 +70,8 @@ async function registerUser() {
   if(!("error" in responseServer)){
     document.getElementById("play-button-container").style.display = "block";
     document.getElementById("end-game-button-container").style.display = "block";
-    
+    alert('Player registered successfully!');
+  }else{
   }
 }
 //---------------------------------------------------------------------
@@ -127,15 +129,17 @@ async function leaveGame() {
 }
 
 
-
-async function notifyMove(nick, password, game, move) {
+/*
+async function notifyMove(move) {
+  let nick = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
   try {
     const result = await makeRequest("notify", {
       nick: nick,
       password: password,
       game: game,
       move: { row:row, 
-              column: column
+              column: col
             }
     });
 
@@ -148,5 +152,51 @@ async function notifyMove(nick, password, game, move) {
   } catch (error) {
     console.error("Error during notify request:", error.message);
 
+  }
+}
+*/
+async function update() {
+  let nick = document.getElementById("username").value;
+  let url_update = `${baseURL}/${update}?nick=${nick}game=${GameID}`;
+  
+  try {
+    const eventSource = new EventSource(url_update);
+    eventSource.onmessage = function(event) {
+      let data = JSON.parse(event.data);
+      console.log(data);
+      if(data.error){
+        console.log("Update Error:" + data.error);
+      }
+      if(data.winner) {
+        console.log("Player" + eventData.winner+  "won the game!");
+        eventSource.close();
+      }
+   }
+
+  } catch (error) {
+    
+  }
+}
+
+
+
+
+
+async function ranking(row, col) {
+  let r = parseInt(rows), c= parseInt(cols);
+  try {
+    const result = await makeRequest("ranking", {
+      group:group,
+      size: {rows:r, columns:c},
+    });
+
+    console.log("Ranking request successful:", result);
+
+    if (result.observation) {
+      console.log("Observation:", result.observation);
+
+    }
+  } catch (error) {
+    console.error("Error during ranking request:", error.message);
   }
 }
