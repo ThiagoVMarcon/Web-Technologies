@@ -39,7 +39,27 @@ async function makeRequest(urlname, data) {
       throw error;
   }
 }
-
+  //-------------------------------------------------------------------
+/*
+  async function registerPlayer(nick, password) {
+    try {
+      const data = {
+        nick: nick,
+        password: password,
+      };
+  
+      const result = await makeRequest('register',data);
+  
+      if (result.success) {
+        console.log('Player registered successfully!');
+      } else {
+        console.error('Error in the request:', result.error);
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  */
 //---------------------------------------------------------------------------------------
 async function registerUser() {
   let nick = document.getElementById("username").value;
@@ -53,16 +73,20 @@ async function registerUser() {
 }
 //---------------------------------------------------------------------
   
-  async function joinGame(group, nick, password, size) {
+  async function joinGame(rows,cols) {
+    let nick = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let size = document.getElementById("board-size").value;
+    let row = parseInt(rows), col= parseInt(cols);
+    console.log(size);
     try {
       let result = await makeRequest('join', {
         group: group,
         nick: nick,
         password: password,
-        size: {row:row, column:column},
+        size: {rows:row, columns:col},
       });
   
-   
       if (result.game) {
         console.log("Join request successful:", result);
         console.log("Game ID:", result.game);
