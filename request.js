@@ -39,27 +39,7 @@ async function makeRequest(urlname, data) {
       throw error;
   }
 }
-  //-------------------------------------------------------------------
-/*
-  async function registerPlayer(nick, password) {
-    try {
-      const data = {
-        nick: nick,
-        password: password,
-      };
-  
-      const result = await makeRequest('register',data);
-  
-      if (result.success) {
-        console.log('Player registered successfully!');
-      } else {
-        console.error('Error in the request:', result.error);
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
-  */
+
 //---------------------------------------------------------------------------------------
 async function registerUser() {
   let nick = document.getElementById("username").value;
