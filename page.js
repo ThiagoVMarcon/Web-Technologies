@@ -145,13 +145,13 @@ function getBoardSize() {
     rows = 7;
     cols = 6;
   }
-
   return { rows, cols };
 }
 
 function startGame() {
   const { rows, cols } = getBoardSize();
   const game = new DaraGame('board', rows, cols);
+  joinGame(rows, cols);
   loginButton.style.display = 'none';
   instructionsButton.style.display = 'none';
   settingsButton.style.display = 'none';
