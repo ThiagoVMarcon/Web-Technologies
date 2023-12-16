@@ -1,5 +1,6 @@
 const baseURL = "http://twserver.alunos.dcc.fc.up.pt:8008";
-const group = 21
+const group = 21;
+var GameID = 0;
 //------------------------------------------------------------------------
 async function makeRequest(urlname, data) {
   let url = `${baseURL}/${urlname}`;
@@ -90,6 +91,7 @@ async function registerUser() {
       if (result.game) {
         console.log("Join request successful:", result);
         console.log("Game ID:", result.game);
+        GameID = result.game;
         if (result.observation) {
           console.log("Observation:", result.observation);
           return true;
@@ -104,12 +106,14 @@ async function registerUser() {
   
 //-------------------------------------------------------------------
 
-async function leaveGame(nick, password, game) {
+async function leaveGame() {
+  let nick = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
   try {
     const result = await makeRequest("leave", {
       nick: nick,
       password: password,
-      game: game,
+      game: GameID,
     });
 
     console.log("Leave request successful:", result);
