@@ -1,7 +1,5 @@
 const baseURL = "http://twserver.alunos.dcc.fc.up.pt:8008";
-
-
-
+const group = 21
 //------------------------------------------------------------------------
 async function makeRequest(urlname, data) {
   let url = `${baseURL}/${urlname}`;
@@ -15,8 +13,8 @@ async function makeRequest(urlname, data) {
 
   try {
       // Debugging
-      //console.log("Data:", data);
-      //console.log("Values:", Object.values(data));
+      console.log("Data:", data);
+      console.log("Values:", Object.values(data));
 
       if (Object.values(data).some(value => value === undefined || value === null || value === '')) {
           throw new Error("Error: Some arguments are omitted.");
@@ -29,6 +27,11 @@ async function makeRequest(urlname, data) {
           throw new Error(`Request error: ${jsonResponse.error}`);
       }
 
+      if(jsonResponse.observation){
+        console.log(jsonResponse.observation);
+      }
+
+
       console.log("Successful request.");
       return jsonResponse;
   } catch (error) {
@@ -36,29 +39,53 @@ async function makeRequest(urlname, data) {
       throw error;
   }
 }
-
-//---------------------------------------------------------------------------------------
-  async function registerUser() {
-    let nick = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let responseServer = await makeRequest("register",{nick, password});
+  //-------------------------------------------------------------------
+/*
+  async function registerPlayer(nick, password) {
+    try {
+      const data = {
+        nick: nick,
+        password: password,
+      };
+  
+      const result = await makeRequest('register',data);
+  
+      if (result.success) {
+        console.log('Player registered successfully!');
+      } else {
+        console.error('Error in the request:', result.error);
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   }
-
+  */
+//---------------------------------------------------------------------------------------
+async function registerUser() {
+  let nick = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let responseServer = await makeRequest("register",{nick, password});
+  if(!("error" in responseServer)){
+    document.getElementById("play-button-container").style.display = "block";
+    document.getElementById("end-game-button-container").style.display = "block";
+    
+  }
+}
 //---------------------------------------------------------------------
-  /*
+  
   async function joinGame(group, nick, password, size) {
     try {
       let result = await makeRequest('join', {
         group: group,
         nick: nick,
         password: password,
-        size: size,
+        size: {row:row, column:column},
       });
   
    
       if (result.game) {
         console.log("Join request successful:", result);
-        console.log("Game:", result.game);
+        console.log("Game ID:", result.game);
         if (result.observation) {
           console.log("Observation:", result.observation);
           return true;
@@ -69,7 +96,7 @@ async function makeRequest(urlname, data) {
       return false;
     }
   }
-  */
+
   
 //-------------------------------------------------------------------
 
@@ -99,13 +126,16 @@ async function notifyMove(nick, password, game, move) {
       nick: nick,
       password: password,
       game: game,
-      "move": {row, column}
+      move: { row:row, 
+              column: column
+            }
     });
 
     console.log("Notify request successful:", result);
 
     if (result.observation) {
       console.log("Observation:", result.observation);
+
     }
   } catch (error) {
     console.error("Error during notify request:", error.message);
