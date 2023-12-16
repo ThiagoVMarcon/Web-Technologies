@@ -77,7 +77,7 @@ a {
 
 .login-modal-content {
   margin: 0;
-  padding: 0px 0px;
+  padding: 0px 30px 30px 50px;
 }
 
 #login-box {
@@ -194,12 +194,16 @@ select {
 }
 
 
-.button-group {
+  .button-group {
     display: flex;
 }
 
-#submit-button, #register-button {
+  #submit-button, #register-button {
     margin-right: 30px; 
 }
-  
+
+#play-button-container,
+#end-game-button-container {
+    display: none;
+}
 
