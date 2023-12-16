@@ -10,8 +10,8 @@
     <header>
         <img src="logo.png" alt="Logo" width="170">
     </header>
-    <div class="container">
-        <div class="left-box">
+    <div class="container" id="blockall">
+        <div class="left-box" id="left-box">
             <div class="left-inside">
                 <button id="login-button" onclick="openCollapsible()" class="left-buttons" type="button">Login</button>
                 <div id="collapsible-content" class="login-modal-content">
@@ -97,6 +97,8 @@
                                 <select id="board-size">
                                     <option value="6x5">6x5</option>
                                     <option value="6x6">6x6</option>
+                                    <option value="5x6">5x6</option>
+                                    <option value="7x6">7x6</option>
                                 </select>
                                 <label for="opponent">Compete Against:</label>
                                 <select id="opponent">
