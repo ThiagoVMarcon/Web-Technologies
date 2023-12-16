@@ -7,6 +7,7 @@ const collapsibleContent = document.getElementById('collapsible-content');
 const instructionsModal = document.getElementById('instructions-modal');
 const settingsModal = document.getElementById('settings-modal');
 const leftBox = document.getElementById('left-box');
+const { rows, cols } = getBoardSize();
 
 collapsibleContent.style.display = 'none';
 instructionsModal.style.display = 'none';
@@ -149,9 +150,8 @@ function getBoardSize() {
 }
 
 function startGame() {
-  const { rows, cols } = getBoardSize();
-  const game = new DaraGame('board', rows, cols);
   joinGame(rows, cols);
+  const game = new DaraGame('board', rows, cols);
   loginButton.style.display = 'none';
   instructionsButton.style.display = 'none';
   settingsButton.style.display = 'none';
@@ -161,12 +161,10 @@ function startGame() {
 }
 
 function endGame() {
-  location.reload(); 
+  leaveGame();
+  //location.reload(); 
 }
 
 // window.onload = function () {
 //   const game = new DaraGame('board', 6, 5); 
 // };
-
-
-
