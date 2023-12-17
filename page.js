@@ -149,7 +149,6 @@ function getBoardSize() {
 }
 
 function startGame() {
-  joinGame(rows, cols);
   update();
   const game = new DaraGame('board', rows, cols);
   loginButton.style.display = 'none';
@@ -162,7 +161,7 @@ function startGame() {
 
 function endGame() {
   leaveGame();
-  location.reload(); 
+  //location.reload(); 
 }
 
 // window.onload = function () {
