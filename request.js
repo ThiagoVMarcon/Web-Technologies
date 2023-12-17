@@ -37,7 +37,7 @@ async function makeRequest(urlname, data) {
       return jsonResponse;
   } catch (error) {
       console.error(error.message);
-      alert(error.message);
+      //alert(error.message);
       throw error;
   }
 }
@@ -89,7 +89,6 @@ async function registerUser() {
         password: password,
         size: {rows:row, columns:col},
       });
-  
       if (result.game) {
         console.log("Join request successful:", result);
         console.log("Game ID:", result.game);
@@ -156,9 +155,10 @@ async function notifyMove(move) {
 }
 */
 async function update() {
+  await joinGame(rows, cols);
   let nick = document.getElementById("username").value;
-  let url_update = `${baseURL}/${update}?nick=${nick}game=${GameID}`;
-  
+  let url_update = baseURL + "/update?nick=" + nick+ "&game=" + GameID;
+  //let url_update = `${baseURL}/{update}?nick=${nick}game=${GameID}`;
   try {
     const eventSource = new EventSource(url_update);
     eventSource.onmessage = function(event) {
@@ -168,13 +168,13 @@ async function update() {
         console.log("Update Error:" + data.error);
       }
       if(data.winner) {
-        console.log("Player" + eventData.winner+  "won the game!");
+        console.log("Player " + data.winner+  " won the game!");
         eventSource.close();
       }
    }
 
   } catch (error) {
-    
+    console.log("Error");
   }
 }
 
