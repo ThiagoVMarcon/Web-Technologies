@@ -1,7 +1,7 @@
 const baseURL = "http://twserver.alunos.dcc.fc.up.pt:8008";
 const group = 21;
 var GameID = 0;
-//------------------------------------------------------------------------
+
 async function makeRequest(urlname, data) {
   let url = `${baseURL}/${urlname}`;
   const config = {
@@ -13,7 +13,6 @@ async function makeRequest(urlname, data) {
   };
 
   try {
-      // Debugging
       console.log("Data:", data);
       console.log("Values:", Object.values(data));
 
@@ -32,7 +31,6 @@ async function makeRequest(urlname, data) {
         console.log(jsonResponse.observation);
       }
 
-
       console.log("Successful request.");
       return jsonResponse;
   } catch (error) {
@@ -41,28 +39,7 @@ async function makeRequest(urlname, data) {
       throw error;
   }
 }
-  //-------------------------------------------------------------------
-/*
-  async function registerPlayer(nick, password) {
-    try {
-      const data = {
-        nick: nick,
-        password: password,
-      };
-  
-      const result = await makeRequest('register',data);
-  
-      if (result.success) {
-        console.log('Player registered successfully!');
-      } else {
-        console.error('Error in the request:', result.error);
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
-  */
-//---------------------------------------------------------------------------------------
+
 async function registerUser() {
   let nick = document.getElementById("username").value;
   let password = document.getElementById("password").value;
@@ -71,41 +48,36 @@ async function registerUser() {
     document.getElementById("play-button-container").style.display = "block";
     document.getElementById("end-game-button-container").style.display = "block";
     alert('Player registered successfully!');
-  }else{
   }
 }
-//---------------------------------------------------------------------
-  
-  async function joinGame(rows,cols) {
-    let nick = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let size = document.getElementById("board-size").value;
-    let row = parseInt(rows), col= parseInt(cols);
-    console.log(size);
-    try {
-      let result = await makeRequest('join', {
-        group: group,
-        nick: nick,
-        password: password,
-        size: {rows:row, columns:col},
-      });
-      if (result.game) {
-        console.log("Join request successful:", result);
-        console.log("Game ID:", result.game);
-        GameID = result.game;
-        if (result.observation) {
-          console.log("Observation:", result.observation);
-          return true;
-        }
-      }
-    } catch (error) {
-      console.error("Error during join request:", error.message);
-      return false;
-    }
-  }
 
-  
-//-------------------------------------------------------------------
+async function joinGame(rows,cols) {
+  let nick = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let size = document.getElementById("board-size").value;
+  let row = parseInt(rows), col= parseInt(cols);
+  console.log(size);
+  try {
+    let result = await makeRequest('join', {
+      group: group,
+      nick: nick,
+      password: password,
+      size: {rows:row, columns:col},
+    });
+    if (result.game) {
+      console.log("Join request successful:", result);
+      console.log("Game ID:", result.game);
+      GameID = result.game;
+      if (result.observation) {
+        console.log("Observation:", result.observation);
+        return true;
+      }
+    }
+  } catch (error) {
+    console.error("Error during join request:", error.message);
+    return false;
+  }
+}
 
 async function leaveGame() {
   let nick = document.getElementById("username").value;
@@ -116,9 +88,7 @@ async function leaveGame() {
       password: password,
       game: GameID,
     });
-
     console.log("Leave request successful:", result);
-
     if (result.observation) {
       console.log("Observation:", result.observation);
     }
@@ -127,38 +97,31 @@ async function leaveGame() {
   }
 }
 
-
-/*
-async function notifyMove(move) {
+async function notifyMove(row, col) {
   let nick = document.getElementById("username").value;
   let password = document.getElementById("password").value;
   try {
     const result = await makeRequest("notify", {
       nick: nick,
       password: password,
-      game: game,
-      move: { row:row, 
+      game: GameID,
+      move: { row: row, 
               column: col
             }
     });
-
     console.log("Notify request successful:", result);
-
     if (result.observation) {
       console.log("Observation:", result.observation);
-
     }
   } catch (error) {
     console.error("Error during notify request:", error.message);
-
   }
 }
-*/
+
 async function update() {
   await joinGame(rows, cols);
   let nick = document.getElementById("username").value;
   let url_update = baseURL + "/update?nick=" + nick+ "&game=" + GameID;
-  //let url_update = `${baseURL}/{update}?nick=${nick}game=${GameID}`;
   try {
     const eventSource = new EventSource(url_update);
     eventSource.onmessage = function(event) {
@@ -168,35 +131,49 @@ async function update() {
         console.log("Update Error:" + data.error);
       }
       if(data.winner) {
-        console.log("Player " + data.winner+  " won the game!");
+        console.log("Player " + data.winner +  " won the game!");
+        alert("Player " + data.winner +  " won the game!");
         eventSource.close();
+        setTimeout(location.reload(), 1500);
       }
    }
-
   } catch (error) {
     console.log("Error");
   }
 }
 
-
-
-
-
-async function ranking(row, col) {
-  let r = parseInt(rows), c= parseInt(cols);
+async function ranking() {
+  let row = parseInt(rows), col= parseInt(cols);
   try {
     const result = await makeRequest("ranking", {
-      group:group,
-      size: {rows:r, columns:c},
+      group: group,
+      size: { rows: row, columns: col },
     });
-
     console.log("Ranking request successful:", result);
-
-    if (result.observation) {
-      console.log("Observation:", result.observation);
-
+    if (result && result.ranking && Array.isArray(result.ranking)) {
+      result.ranking.sort((a, b) => b.victories - a.victories);
+      const limitedResult = result.ranking.slice(0, 10);
+      const table = document.createElement("table");
+      const headerRow = table.insertRow();
+      ['nick', 'games', 'victories'].forEach((key) => {
+        const headerCell = headerRow.insertCell();
+        headerCell.textContent = key;
+      });
+      limitedResult.forEach((item) => {
+        const row = table.insertRow();
+        ['nick', 'games', 'victories'].forEach((key) => {
+          const cell = row.insertCell();
+          cell.textContent = item[key];
+        });
+      });
+      const container = document.getElementById("table-container");
+      container.innerHTML = "";
+      container.appendChild(table);
     }
   } catch (error) {
     console.error("Error during ranking request:", error.message);
   }
 }
+
+
+
