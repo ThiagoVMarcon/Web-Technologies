@@ -26,7 +26,7 @@
                 </div>
                 <button id="instructions-button" onclick="openModal(event)" class="left-buttons">Instructions</button>
                 <button id="settings-button" onclick="openModal(event)" class="left-buttons">Settings</button>
-                <button id="classifications-button" class="left-buttons">Classifications</button>
+                <button id="classifications-button" onclick="openModal(event)" class="left-buttons">Classifications</button>
             </div>
         </div>
         <div class="middle-box">
@@ -119,9 +119,20 @@
                                     <option value="hard">Hard</option>
                                 </select>
                                 </div>
-                                <button id="default-button">Default</button>
+                                <button id="default-button" onclick="setDefault()">Default</button>
                         </div>
                         <button id="settings-close-button" class="close-button" onclick="closeModal()">x</button>
+                    </div>
+                </div>
+                <div id="classifications-modal">
+                    <div class="modal-content">
+                            <h1>Classifications</h1>
+                            <div id="table-container">
+                                <table id="ranking-table">
+                                    
+                                </table>
+                            </div>
+                        <button id="classifications-close-button" class="close-button" onclick="closeModal()">x</button>
                     </div>
                 </div>
             </div>           
@@ -130,7 +141,7 @@
                 <button id="play-button" onclick="startGame()">Play</button>
             </div>
             <div id="end-game-button-container">
-                <button id="play-button" onclick="endGame()">End Game</button>
+                <button id="end-button" onclick="endGame()">End Game</button>
             </div>             
         </div>
     </div>
