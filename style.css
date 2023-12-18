@@ -41,11 +41,10 @@ a {
 .middle-box {
   flex: 5;
   display: flex;
-  flex-direction: column; /* Adicionado para definir a direção como coluna */
+  flex-direction: column; 
   padding: 0px 10px 0;
-  height: 100%; /* Adicionado para ocupar toda a altura */
+  height: 100%; 
 }
-
 
 .middle-inside {
   flex: 2;
@@ -94,7 +93,12 @@ a {
   font-size: 18pt;
   font-weight: bold;
 }
+
 #settings-modal h1 {
+  text-align: center;
+} 
+
+#classifications-modal h1 {
   text-align: center;
 } 
 
@@ -182,10 +186,10 @@ select {
 
 #board {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  width: 100%; /* Ajuste a largura para preencher o espaço disponível */
-  height: 70%; /* Ajuste a altura para preencher o espaço disponível */
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  height: 70%; 
 }
 
 .pieces-container {
@@ -193,12 +197,11 @@ select {
   justify-content: center;
 }
 
-
-  .button-group {
+.button-group {
     display: flex;
 }
 
-  #submit-button, #register-button {
+#submit-button, #register-button {
     margin-right: 30px; 
 }
 
@@ -206,4 +209,5 @@ select {
 #end-game-button-container {
     display: none;
 }
+
 
